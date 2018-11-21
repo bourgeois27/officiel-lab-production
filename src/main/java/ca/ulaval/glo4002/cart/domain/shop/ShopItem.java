@@ -6,7 +6,6 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @XmlSeeAlso({StandardShopItem.class, PrimeShopItem.class})
@@ -14,22 +13,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class ShopItem {
 
-    @XmlElement
-    @JsonProperty
-    @Id
-    protected String itemSku;
+  @XmlElement
+  @JsonProperty
+  @Id
+  protected String itemSku;
 
-    public String getSku() {
-        return itemSku;
-    }
+  public String getSku() {
+    return itemSku;
+  }
 
-    public boolean hasSku(String sku) {
-        return this.itemSku.equals(sku);
-    }
+  public boolean hasSku(String sku) {
+    return this.itemSku.equals(sku);
+  }
 
-    public abstract String getName();
+  public abstract String getName();
 
-    public abstract boolean isAvailable();
+  public abstract boolean isAvailable();
 
-    public abstract int getPriceWithShipping();
+  public abstract int getPriceWithShipping();
 }
