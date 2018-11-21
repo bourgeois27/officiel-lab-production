@@ -3,6 +3,8 @@ package ca.ulaval.glo4002.cart.context;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ca.ulaval.glo4002.cart.application.ServiceLocator;
 import ca.ulaval.glo4002.cart.application.jpa.EntityManagerFactoryProvider;
 import ca.ulaval.glo4002.cart.application.jpa.EntityManagerProvider;
@@ -10,8 +12,6 @@ import ca.ulaval.glo4002.cart.domain.shop.PrimeShopItem;
 import ca.ulaval.glo4002.cart.domain.shop.ShopItem;
 import ca.ulaval.glo4002.cart.domain.shop.ShopRepository;
 import ca.ulaval.glo4002.cart.domain.shop.StandardShopItem;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 class DemoPrefillContext {
   private static final Logger LOGGER = LoggerFactory.getLogger(DemoPrefillContext.class);
@@ -31,7 +31,7 @@ class DemoPrefillContext {
     try {
       entityManager = entityManagerFactory.createEntityManager();
       EntityManagerProvider.setEntityManager(entityManager);
-      entityManager.close(); // oops
+      // entityManager.close(); // oops
 
       addItem(new StandardShopItem("1251521", "Peanuts", 5, 1, 1.20, true));
       addItem(new PrimeShopItem("236637", "Clean Code", 35, 2, 0.50, false));
