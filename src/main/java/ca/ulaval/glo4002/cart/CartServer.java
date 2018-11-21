@@ -18,7 +18,7 @@ import ca.ulaval.glo4002.cart.interfaces.rest.mappers.PersistenceExceptionMapper
 import ca.ulaval.glo4002.cart.interfaces.rest.shop.ShopResource;
 
 public class CartServer implements Runnable {
-  private static final int PORT = System.getenv("PORT") == null ? 7222 : Integer.parseInt(System.getenv("PORT"));
+  private static final int PORT = System.getenv("PORT") == null ? 5000 : Integer.parseInt(System.getenv("PORT"));
 
   public static void main(String[] args) {
     new CartServer().run();
